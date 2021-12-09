@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratology | Rating the Trigonometry Calculator App!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="wrapper">
+        <fieldset>
+            <legend>Opinion here</legend>
+            <input type="text" placeholder="Your Name" id="name">
+            <input type="number" placeholder="Rating here" id="rating" min="1" max="5">
+            <textarea placeholder="Description of your rating" id="description" cols="30" rows="10"></textarea>
+            <button type="submit" id="submit">Submit</button>
+        </fieldset>
+    </div>
+</body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js";
+
+    var names = [];
+    var rates = [];
+    var descs = [];
+
+    var name = document.getElementById("name");
+    var rating = document.getElementById("rating");
+    var description = document.getElementById("description");
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBOtYhBEzwSs4sLn3s-h8yeHFDXZHfR7rw",
+        authDomain: "rating-app-7d87a.firebaseapp.com",
+        databaseURL: "https://rating-app-7d87a-default-rtdb.firebaseio.com",
+        projectId: "rating-app-7d87a",
+        storageBucket: "rating-app-7d87a.appspot.com",
+        messagingSenderId: "1029127399096",
+        appId: "1:1029127399096:web:59040e7faa700cb5a4b64d"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+
+    function writeData() {
+        names.push(name.value);
+        rates.push(rating.value);
+        descs.push(description.value);
+
+        for (var i = 0; i < rates.length; i++) {
+            set(ref(db, 'users/' + names[i]), {
+                rating: rates[i],
+                description: descs[i],
+            })
+        }
+
+        alert("Review Submitted!")
+    }
+
+    document.getElementById("submit").addEventListener("click", writeData);
+</script>
+</html>

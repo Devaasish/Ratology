@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
+
+* {
+    margin: 0%;
+    padding: 0%;
+    flex-wrap: wrap;
+    font-family: 'Readex Pro', sans-serif;
+    outline: none;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to left, #799f0c, #acbb78);
+}
+
+#wrapper fieldset {
+    padding: 15px;
+    border: 2px solid blue;
+    display: grid;
+}
+
+#wrapper legend {
+    padding: 5px;
+    background-color: #181892;
+    color: white;
+    font-size: 30px;
+    border: 4px solid red;
+}
+
+#wrapper input {
+    font-size: 25px;
+    padding: 15px;
+    color: blue;
+    margin-bottom: 10px;
+    border-bottom: 5px solid blue;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+#wrapper input:focus {
+    box-shadow: 0px 0px 10px rgb(3, 7, 219);
+}
+
+#wrapper textarea {
+    width: 500px;
+    font-size: 25px;
+    padding: 15px;
+    color: blue;
+    margin-bottom: 10px;
+    border-bottom: 5px solid blue;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+#wrapper textarea:focus {
+    box-shadow: 0px 0px 10px rgb(3, 7, 219);
+}
+
+#wrapper button {
+    border: none;
+    border-radius: 6px;
+    padding: 18px 60px;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #FF9800;
+    color: #fff;
+    display: block;
+    transition: background 1s;
+}
+
+#wrapper button:hover {
+    background-image: radial-gradient(circle, transparent 1%, #FF9800 1%);
+    background-position: center;
+    background-size: 15000%;
+}
+
+#wrapper button:active {
+    transition: background 0s;
+    background-color: #FFEB3B;
+    background-size: 100%;
+}
+
+@media screen and (max-width: 1050px) {
+    
+}
